@@ -30,6 +30,17 @@ while !deck_cards.empty?
 	end
 
 	puts "Player 1 flipped the #{player1card} of #{rand_suit1}."
+
+	if player1card == "Jack"
+		player1card = 11
+	elsif player1card == "Queen"
+		player1card = 12
+	elsif player1card == "King"
+		player1card = 13
+	elsif player1card == "Ace"
+		player1card = 14
+	end
+
 	suit1.delete(player1card)
 	if suit1.empty? == true
 		deck_cards.delete(rand_suit1)
@@ -51,21 +62,22 @@ while !deck_cards.empty?
 	end
 
 	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
+
+	if player2card == "Jack"
+		player2card = 11
+	elsif player2card == "Queen"
+		player2card = 12
+	elsif player2card == "King"
+		player2card = 13
+	elsif player2card == "Ace"
+		player2card = 14
+	end
+
 	suit2.delete(player2card)
 
 	if suit2.empty? == true
 		deck_cards.delete(rand_suit2)
 		suits.delete(rand_suit2)
-	end
-
-	if player1card == "Jack" || player2card == "Jack"
-		player1card = 11
-	elsif player1card == "Queen" || player2card == "Queen"
-		player1card = 12
-	elsif player1card == "King" || player2card == "King"
-		player1card = 13
-	elsif player1card == "Ace" || player2card == "Ace"
-		player1card = 14
 	end
 
 	if player1card > player2card
@@ -82,15 +94,17 @@ while !deck_cards.empty?
 	gets
 end
 
+results = "Player 1 won #{count1} rounds.\nPlayer 2 won #{count2} rounds.\n\nAnd the winner is....."
+
 if count1 > count2
-	puts "Player 1 won the game!"
+	puts results + " PLAYER 1!"
 elsif count1 < count2
-	puts "Player 2 won the game!"
+	puts results + " PLAYER 2!"
 elsif count1 == count2
-	"The game is a DRAW."
+	puts "Player 1 won #{count1} rounds.\nPlayer 2 won #{count2} rounds.\n\nThe game is a DRAW."
 end
 		
 		
 
 
-puts deck_cards
+# puts deck_cards
