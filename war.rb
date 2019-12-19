@@ -27,13 +27,13 @@ while !deck_cards.empty?
 
 	puts "Player 1 flipped the #{player1card} of #{rand_suit1}."
 	suit1.delete(player1card)
-	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
-	suit2.delete(player2card)
-
 	if suit1.empty? == true
 		deck_cards.delete(rand_suit1)
 		suits.delete(rand_suit1)
 	end
+	
+	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
+	suit2.delete(player2card)
 
 	if suit2.empty? == true
 		deck_cards.delete(rand_suit2)
