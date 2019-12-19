@@ -11,11 +11,23 @@ deck_cards = {
 
 suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
 
+count1 = 0
+count2 = 0
 
 while !deck_cards.empty?
 	rand_suit1 = suits[rand(suits.length)]
 	suit1 = deck_cards[rand_suit1]
 	player1card = suit1[rand(suit1.length)]
+
+	if player1card == 11
+		player1card = "Jack"
+	elsif player1card == 12
+		player1card = "Queen"
+	elsif player1card == 13
+		player1card = "King"
+	elsif player1card == 14
+		player1card = "Ace"
+	end
 
 	puts "Player 1 flipped the #{player1card} of #{rand_suit1}."
 	suit1.delete(player1card)
@@ -28,6 +40,16 @@ while !deck_cards.empty?
 	suit2 = deck_cards[rand_suit2]
 	player2card = suit2[rand(suit2.length)]
 
+	if player2card == 11
+		player2card = "Jack"
+	elsif player2card == 12
+		player2card = "Queen"
+	elsif player2card == 13
+		player2card = "King"
+	elsif player2card == 14
+		player2card = "Ace"
+	end
+
 	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
 	suit2.delete(player2card)
 
@@ -36,10 +58,22 @@ while !deck_cards.empty?
 		suits.delete(rand_suit2)
 	end
 
+	if player1card == "Jack" || player2card == "Jack"
+		player1card = 11
+	elsif player1card == "Queen" || player2card == "Queen"
+		player1card = 12
+	elsif player1card == "King" || player2card == "King"
+		player1card = 13
+	elsif player1card == "Ace" || player2card == "Ace"
+		player1card = 14
+	end
+
 	if player1card > player2card
 		puts "Player 1 won this round."
+		count1 += 1
 	elsif player1card < player2card
 		puts "Player 2 won this round."
+		count2 += 1
 	elsif player1card == player2card
 		puts "DRAW"
 	end
@@ -47,5 +81,16 @@ while !deck_cards.empty?
 	puts "Press ENTER to continue:"
 	gets
 end
+
+if count1 > count2
+	puts "Player 1 won the game!"
+elsif count1 < count2
+	puts "Player 2 won the game!"
+elsif count1 == count2
+	"The game is a DRAW."
+end
+		
+		
+
 
 puts deck_cards
