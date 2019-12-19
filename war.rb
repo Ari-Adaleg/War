@@ -15,7 +15,7 @@ deck_cards = {
 suits = ["Clubs", "Diamonds", "Hearts", "Spades"]
 
 
-while !deck_cards.empty? do
+while !deck_cards.empty?
 	rand_suit1 = suits[rand(suits.length)]
 	rand_suit2 = suits[rand(suits.length)]
 
@@ -26,17 +26,16 @@ while !deck_cards.empty? do
 	player2card = suit2[rand(suit2.length)]
 
 	puts "Player 1 flipped the #{player1card} of #{rand_suit1}."
-	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
-
 	suit1.delete(player1card)
+	puts "Player 2 flipped the #{player2card} of #{rand_suit2}."
 	suit2.delete(player2card)
 
-	if suit1.empty? == true then
+	if suit1.empty? == true
 		deck_cards.delete(rand_suit1)
 		suits.delete(rand_suit1)
 	end
 
-	if suit2.empty? == true then
+	if suit2.empty? == true
 		deck_cards.delete(rand_suit2)
 		suits.delete(rand_suit2)
 	end
